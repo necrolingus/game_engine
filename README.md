@@ -15,7 +15,7 @@ Anyone can design and submit a custom 2D platformer level without needing an acc
   - **Level Length**: `2` to `12` screens (`20 × 12` tiles per screen).
   - **Terrain & Platforming**: Stepped ground hill elevation (`0–4` tiles), platform density, pit frequency, and vertical jump reach.
   - **Starting Player Lives**: Configurable from `1` to `5` lives.
-  - **Lucky-Dip Mystery Blocks (`?`)**: Configurable count and weighted gift probabilities for **Coins**, **Extra Lives (+1-UP)**, and **5-Second 2× Giant Invincibility**.
+  - **Lucky-Dip Mystery Blocks (`?`)**: Configurable count and weighted gift probabilities for **Coins**, **Extra Lives (+1-UP)**, and **5-Second Invincibility**.
   - **Hazards & Bad Guys**: Crankable density (`0–100%`) spawning patrolling retro beetles and 3 spike varieties (`3-Prong Short`, `1-Prong Medium`, `2-Prong High with Gap`) surrounded by a radiating danger aura.
   - **Scenery**: Multi-tile clouds, bushes, stone totems, grass tufts, and 4 vibrant flower types.
 - **Automatic Reachability Verifier**: Guarantees every generated platform and Lucky Block is 100% reachable before submission.
@@ -26,8 +26,8 @@ Anyone can design and submit a custom 2D platformer level without needing an acc
 - **Filterable Playable Level Browser (`/play.html`)**: Search and filter all admin-approved community levels by name, creator username, color palette, screen length, creator country, and popularity (`Plays` / `Wins`).
 - **Playable 2D Platformer Engine**:
   - **Animated Pixel-Art Hero**: Custom multi-color character with a cap, cyan visor goggles, flowing scarf, overalls, and animated arms/legs for walking and jumping.
-  - **Omnidirectional Lucky Blocks**: Bump `?` blocks from underneath, from the left/right side, or bounce on top to pop out Coins, Extra Lives, or 5-Second 2× Giant Invincibility (which doubles character size, grants hazard immunity, and knocks out patrolling enemies on contact).
-  - **Live HUD & Completion Summary**: Tracks remaining lives, gifts collected by type (`Coins`, `+1-UP`, `2× Invincibility`, and `Opened / Total Gifts`), and final score on both the live HUD and the Level Complete / Game Over screen.
+  - **Omnidirectional Lucky Blocks**: Bump `?` blocks from underneath, from the left/right side, or bounce on top to pop out Coins, Extra Lives, or 5-Second Invincibility (grants hazard immunity, a flashing aura, and knocks out patrolling enemies on contact without changing character size).
+  - **Live HUD & Completion Summary**: Tracks remaining lives, gifts collected by type (`Coins`, `+1-UP`, `Invincibility`, and `Opened / Total Gifts`), and final score on both the live HUD and the Level Complete / Game Over screen.
 
 ### 3. 🛡️ Admin Moderation Interface (`/admin.html`)
 - **Protected Moderation Queue**: Secured via a static `ADMIN_API_KEY` in `.env` (`crypto.timingSafeEqual`).

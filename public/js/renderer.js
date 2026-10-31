@@ -8,7 +8,7 @@ const SCALE = 2; // 16px native tile * 2 = 32px rendered per tile on canvas
 /**
  * Draws a detailed retro pixel-art playable hero character with animated arms & legs!
  * Supports:
- * - scaleMultiplier (1x normal, 2x when Giant 5s Invincibility is active!)
+ * - Invincibility aura & rainbow flashing effects
  * - walkCycle (continuous phase for swinging arms and striding legs)
  * - isGrounded (jumps raise one arm and tuck legs)
  * - facing (1 = right, -1 = left)
@@ -273,7 +273,7 @@ export function drawInteractingBlock(
   ctx.fillRect(px + 5 * u, py + 4 * u, 5 * u, u);
   ctx.fillRect(px + 7 * u, py + 11 * u, u, u);
 
-  // Optional creator overlay badge showing which gift was rolled (Coin, 1UP, or 2x Star)
+  // Optional creator overlay badge showing which gift was rolled (Coin, 1UP, or Star)
   if (showGiftIcons && gift) {
     const badgeColors = {
       COIN: '#ffd700',
@@ -283,7 +283,7 @@ export function drawInteractingBlock(
     const badgeSymbols = {
       COIN: 'C',
       EXTRA_LIFE: '1UP',
-      INVINCIBILITY: '2X'
+      INVINCIBILITY: 'INV'
     };
     ctx.fillStyle = 'rgba(0, 0, 0, 0.78)';
     ctx.fillRect(px + u, py - 9, tilePx - 2 * u, 9);

@@ -256,8 +256,8 @@ const PARAMETER_BOUNDS = {
     category: 'Interactive & Gifts'
   },
   giftWeightInvincibility: {
-    label: 'Gift Weight: 5s Giant Invincibility',
-    description: 'Relative chance of 5-second Invincibility (character doubles in size).',
+    label: 'Gift Weight: 5s Invincibility',
+    description: 'Relative chance of 5-second Invincibility.',
     type: 'integer',
     min: 0,
     max: 100,

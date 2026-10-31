@@ -212,7 +212,7 @@ export class PlatformerGameEngine {
 
   /**
    * Triggers a Lucky-Dip Block when bumped from the bottom, side, or bounced on top!
-   * Awards either a Coin, an Extra Life (1-UP), or 5-second 2x-size Invincibility.
+   * Awards either a Coin, an Extra Life (1-UP), or 5-second Invincibility.
    */
   triggerLuckyBlock(block, bumpDirection) {
     if (block.used) return;
@@ -237,17 +237,9 @@ export class PlatformerGameEngine {
       this.invincibilitiesCollected += 1;
       this.score += 1000;
       const now = performance.now();
-      // Activate 5 seconds of 2x-size Giant Invincibility!
-      const wasGiant = this.player.invincibleUntil > now;
+      // Activate 5 seconds of Invincibility!
       this.player.invincibleUntil = now + 5000;
-      if (!wasGiant) {
-        // Grow to 2x size anchored from feet so player never clips into floor
-        const oldH = this.player.h;
-        this.player.w = this.player.baseW * 2;
-        this.player.h = this.player.baseH * 2;
-        this.player.y -= this.player.h - oldH;
-      }
-      this.addFloatingText('⭐ 5s 2X GIANT INVINCIBILITY!', centerX, topY - 8, '#ff4081');
+      this.addFloatingText('⭐ 5s INVINCIBILITY!', centerX, topY - 8, '#ff4081');
     }
 
     this.emitHud();
@@ -268,8 +260,8 @@ export class PlatformerGameEngine {
     const p = this.player;
     const isInvincible = p.invincibleUntil > now;
 
-    // Check if 5s 2x Giant Invincibility just expired -> return to normal 1x size
-    if (!isInvincible && p.h > p.baseH) {
+    // Safety check: ensure player retains standard dimensions
+    if (p.h > p.baseH) {
       const oldH = p.h;
       p.w = p.baseW;
       p.h = p.baseH;
@@ -576,7 +568,7 @@ export class PlatformerGameEngine {
       drawMarker(ctx, this.goalMarker, TILE_PX, palette);
     }
 
-    // 7. Animated Playable Hero Character (with swinging arms, striding legs, & 2x Giant Invincibility!)
+    // 7. Animated Playable Hero Character (with swinging arms, striding legs, & Invincibility aura!)
     const p = this.player;
     const isInvincible = p.invincibleUntil > now;
     drawAnimatedHero(ctx, Math.round(p.x), Math.round(p.y), p.w, p.h, palette, {
@@ -587,7 +579,7 @@ export class PlatformerGameEngine {
       timeMs: now
     });
 
-    // 8. Floating Popups (+1 COIN, +1 EXTRA LIFE, 5s 2X INVINCIBILITY)
+    // 8. Floating Popups (+1 COIN, +1 EXTRA LIFE, 5s INVINCIBILITY)
     for (const ft of this.floatingTexts) {
       ctx.save();
       ctx.globalAlpha = ft.alpha;

@@ -10,7 +10,7 @@ A level then consists of a grid of tiles and each texture is a multiple of these
 Textures can either be "platform" textures where the character jumps onto, runs on, etc
 Textures can also be "non-interacting" like the grass, flowers, clouds, etc used to make the game look good and give it character
 Textures can also be "interacting" and must be a certain color/texture to make it stand out so the player knows. Interacting textures must be "bumpable". The engine must ensure an interacting texture does not get placed in such a way that it is never interactable. Bumping means jumping against it either from the side or bottom, or bouncing on top of it.
-Interacting textures must be a lucky dip, either a coin, or an extra live, or invincibility for 5 seconds where the character doubles in size for that 5 seconds.
+Interacting textures must be a lucky dip, either a coin, or an extra live, or invincibility for 5 seconds (with a flashing aura and hazard immunity, without doubling in size).
 
 Everything must be parameterized so the level creator can select, for example, how many screens the game should be, how many interacting textures, what the ratio of "gifts" from the interacting textures must be, etc.
 
@@ -109,10 +109,10 @@ I will be developing across 2 devices. So ideally the AI brain must be in the re
   - **Bumpable Lucky-Dip Mystery Blocks**: Can be bumped from underneath (head-bump), bumped from the left/right side, or bounced on from the top. Awards the pre-rolled gift:
     - **Coin (`+1 COIN`, `+100 Score`)**
     - **Extra Life (`+1 LIVE`, `+500 Score`)**
-    - **5-Second Giant Invincibility (`2× character size`, flashing rainbow/gold aura, immunity to spikes & enemies, and instant KO on contact with patrolling enemies)**
+    - **5-Second Invincibility (flashing rainbow/gold aura, immunity to spikes & enemies, and instant KO on contact with patrolling enemies without changing character size)**
   - **Live Gift & Lives HUD + Level Complete Breakdown (`public/play.html` & `public/js/play.js`)**:
-    - Live HUD displays **Lives Remaining** (`❤️ LIVES`), **Gifts Collected** (`🪙 Coins`, `❤️ +1UP Extra Lives`, `⭐ 2× Giant Invincibilities`, and `Opened / Total Gifts`), and **Score**.
-    - Level Complete / Game Over screen displays a detailed breakdown of **Lives Left (vs. Starting Lives)**, **Total Gifts Opened / Total in Level**, individual counts for **Coins**, **Extra Lives (+1UP)**, and **2× Invincibilities**, plus **Final Score**.
+    - Live HUD displays **Lives Remaining** (`❤️ LIVES`), **Gifts Collected** (`🪙 Coins`, `❤️ +1UP Extra Lives`, `⭐ Invincibilities`, and `Opened / Total Gifts`), and **Score**.
+    - Level Complete / Game Over screen displays a detailed breakdown of **Lives Left (vs. Starting Lives)**, **Total Gifts Opened / Total in Level**, individual counts for **Coins**, **Extra Lives (+1UP)**, and **Invincibilities**, plus **Final Score**.
   - **High-Visibility Spikes with Radiating Danger Aura (`drawHazard1x1`)**:
     - All 3 spike varieties (`3-Prong Short`, `1-Prong Medium`, `2-Prong High with Gap`) are drawn larger with high-contrast metallic/white blades, a hazard warning baseplate, and a pulsing multi-ring crimson/amber radiating aura so they stand out clearly against every color palette.
 

@@ -210,7 +210,7 @@ async function startPlayingLevel(levelId) {
               <span class="stat-chip">🎁 <strong>Gifts Opened:</strong> ${result.totalGiftsOpened} / ${result.totalGiftsInLevel}</span>
               <span class="stat-chip">🪙 <strong>Coins:</strong> ${result.coins}</span>
               <span class="stat-chip">❤️ <strong>Extra Lives (+1UP):</strong> ${result.extraLivesCollected}</span>
-              <span class="stat-chip">⭐ <strong>2× Invincibilities:</strong> ${result.invincibilitiesCollected}</span>
+              <span class="stat-chip">⭐ <strong>Invincibilities:</strong> ${result.invincibilitiesCollected}</span>
               <span class="stat-chip">🏆 <strong>Final Score:</strong> ${result.score}</span>
             `;
           }

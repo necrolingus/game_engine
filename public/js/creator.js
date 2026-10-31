@@ -89,7 +89,7 @@ function updateGiftRatioPreview() {
     <div class="gift-Ratio-pills">
       <span class="pill coin">Coin: ${pctC}%</span>
       <span class="pill life">1-UP: ${pctL}%</span>
-      <span class="pill invinc">5s 2x Invincibility: ${pctI}%</span>
+      <span class="pill invinc">5s Invincibility: ${pctI}%</span>
     </div>
   `;
 }
